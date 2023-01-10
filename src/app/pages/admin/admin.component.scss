@@ -1,0 +1,27 @@
+button {
+  background: transparent;
+  color: black;
+  font-family: sfLogo;
+  font-size: 1rem;
+  border-radius: 2rem;
+  padding-left: 3.5rem;
+  min-width: 8rem;
+  width: fit-content;
+  height: 3rem;
+  text-transform: capitalize;
+  margin: 0 0.5rem;
+  border: transparent 1px solid;
+  &:hover {
+    border: white 1px solid;
+  }
+  &.logOutButton {
+    border: rgba(255, 255, 255, 0.5) 1px solid;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    padding: 0.2rem 1rem;
+    &:hover {
+      color: white !important;
+      background-color: black;
+    }
+  }
+}
