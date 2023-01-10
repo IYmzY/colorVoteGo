@@ -1,10 +1,55 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
+import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'colorVoteGo';
+  title = 'festivApp';
+
+  auth = new FirebaseTSAuth();
+
+  firestore = new FirebaseTSFirestore();
+
+  responsiveViewHeight: number;
+
+  constructor(private router: Router) {
+    // this.auth.listenToSignInStateChanges((user) => {
+    //   this.auth.checkSignInState({
+    //     whenSignedIn: (user) => {
+    //       this.router.navigate(['']);
+    //     },
+    //     whenSignedOut: (user) => {
+    //       this.router.navigate(['connect']);
+    //     },
+    //     whenSignedInAndEmailNotVerified: (user) => {
+    //       this.router.navigate(['emailVerification']);
+    //     },
+    //     whenSignedInAndEmailVerified: (user) => {
+    //       this.router.navigate(['']);
+    //     },
+    //     whenChanged: (user) => {},
+    //   });
+    // });
+    this.responsiveViewHeight = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty(
+      '--responsiveViewHeight',
+      `${this.responsiveViewHeight}px`
+    );
+    window.addEventListener('resize', () => {
+      this.responsiveViewHeight = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty(
+        '--responsiveViewHeight',
+        `${this.responsiveViewHeight}px`
+      );
+    });
+  }
+
+  loggedIn() {
+    return this.auth.isSignedIn();
+  }
 }
