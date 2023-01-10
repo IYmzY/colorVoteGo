@@ -1,2 +1,20 @@
 <div class="welcomeMainContainer">
+    <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState" (closed)="!panelOpenState" hideToggle>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Visitor access
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <app-visitor-auth></app-visitor-auth>
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelOpenState" (closed)="!panelOpenState" hideToggle>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Admin access
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <authenticator></authenticator>
+        </mat-expansion-panel>
+    </mat-accordion>
 </div>

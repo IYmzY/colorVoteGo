@@ -10,13 +10,14 @@ import { Router } from '@angular/router';
 export class WelcomeComponent implements OnInit {
   auth = new FirebaseTSAuth();
 
+  panelOpenState: boolean = false;
+
   constructor(private router: Router) {}
 
   ngOnInit(): void {
     // redirect admin to admin page if connected
     if (this.auth.isSignedIn()) {
-      // this.router.navigate(['emailVerification']);
+      this.router.navigate(['admin']);
     }
-    
   }
 }

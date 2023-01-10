@@ -1,7 +1,23 @@
 .welcomeMainContainer {
   height: 100vh; /* Fallback for browsers that do not support Custom Properties */
-  height: calc(var(--vh, 1vh) * 100);
+  height: calc(var(--responsiveViewHeight, 1vh) * 100);
   width: 100vw;
   background-color: black;
   overflow: hidden;
+
+  mat-accordion {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    mat-expansion-panel {
+      width: 60%;
+      padding: 0.5rem;
+      @media screen and (max-width: 700px) {
+        width: 80%;
+      }
+    }
+  }
 }

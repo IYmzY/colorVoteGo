@@ -1,0 +1,11 @@
+<div class="authContainer">
+    <mat-card class="authContent">
+        <h2> Welcome to ColorVoteGo</h2>
+        <h3> give us you're nickname and the room number to continue</h3>
+        <div>
+            <input #name placeholder="Name" type="text">
+            <input #sessionNumber placeholder="Room code" type="text">
+            <button (click)="onJoin(name,sessionNumber)" mat-raised-button color="accent">Join room</button>
+        </div>
+    </mat-card>
+</div>

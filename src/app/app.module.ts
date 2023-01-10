@@ -12,9 +12,13 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { AuthenticatorComponent } from './components/authenticator/authenticator.component';
+import { VisitorAuthComponent } from './components/visitor-auth/visitor-auth.component';
+import { AdminComponent } from './pages/admin/admin.component';
 
 @NgModule({
-  declarations: [AppComponent, WelcomeComponent],
+  declarations: [AppComponent, WelcomeComponent, AuthenticatorComponent, VisitorAuthComponent, AdminComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -23,6 +27,7 @@ import { WelcomeComponent } from './pages/welcome/welcome.component';
     MatButtonModule,
     MatDialogModule,
     MatIconModule,
+    MatExpansionModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
