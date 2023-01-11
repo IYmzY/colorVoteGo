@@ -17,6 +17,7 @@ export class WelcomeComponent implements OnInit {
   ngOnInit(): void {
     // redirect admin to admin page if connected
     if (this.auth.isSignedIn()) {
+      console.log('signed ?');
       this.router.navigate(['admin']);
     }
   }

@@ -1,27 +1,50 @@
-button {
-  background: transparent;
-  color: black;
-  font-family: sfLogo;
-  font-size: 1rem;
-  border-radius: 2rem;
-  padding-left: 3.5rem;
-  min-width: 8rem;
-  width: fit-content;
-  height: 3rem;
-  text-transform: capitalize;
-  margin: 0 0.5rem;
-  border: transparent 1px solid;
-  &:hover {
-    border: white 1px solid;
-  }
-  &.logOutButton {
-    border: rgba(255, 255, 255, 0.5) 1px solid;
-    color: rgba(255, 255, 255, 0.5);
-    text-transform: uppercase;
-    padding: 0.2rem 1rem;
-    &:hover {
-      color: white !important;
-      background-color: black;
+.mainAdminContainer {
+  height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+  height: calc(var(--responsiveViewHeight, 1vh) * 100);
+  width: 100vw;
+  background-color: black;
+  overflow: hidden;
+  nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    h1 {
+      color: white;
+      font-family: sfTitle;
+      font-size: 2rem;
+      margin: 0;
+      @media screen and (max-width: 700px) {
+        font-size: 1.8rem;
+      }
+    }
+    button {
+      background: transparent;
+      color: black;
+      font-family: sfLogo;
+      font-size: 1rem;
+      border-radius: 2rem;
+      padding-left: 3.5rem;
+      min-width: 8rem;
+      width: fit-content;
+      height: 3rem;
+      text-transform: capitalize;
+      margin: 0 0.5rem;
+      border: transparent 1px solid;
+      &:hover {
+        border: white 1px solid;
+      }
+      &.logOutButton {
+        border: rgba(255, 255, 255, 0.5) 1px solid;
+        color: rgba(255, 255, 255, 0.5);
+        text-transform: uppercase;
+        padding: 0.2rem 1rem;
+        &:hover {
+          color: white !important;
+          background-color: black;
+        }
+      }
     }
   }
 }

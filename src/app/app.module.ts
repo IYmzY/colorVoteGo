@@ -16,9 +16,10 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { AuthenticatorComponent } from './components/authenticator/authenticator.component';
 import { VisitorAuthComponent } from './components/visitor-auth/visitor-auth.component';
 import { AdminComponent } from './pages/admin/admin.component';
+import { CreateRoomComponent } from './components/create-room/create-room.component';
 
 @NgModule({
-  declarations: [AppComponent, WelcomeComponent, AuthenticatorComponent, VisitorAuthComponent, AdminComponent],
+  declarations: [AppComponent, WelcomeComponent, AuthenticatorComponent, VisitorAuthComponent, AdminComponent, CreateRoomComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

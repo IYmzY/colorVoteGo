@@ -1,0 +1,25 @@
+<mat-card class="create-room-container">
+    <h2>Create Room</h2>
+    <div class="room-name-container">
+        <textarea type="text" #roomName maxlength="350" placeholder="Type Room Name"></textarea>
+    </div>
+    <div class="item-count-container">
+        <div class="item-title-container">
+            <h3>How many Item do u want ?'</h3>
+        </div>
+        <div class="item-counter-filter-container">
+            <span class="item-count-click minus-click" (click)="onMinusClick()">
+                <img class="minusClick" src="../../../assets/icons/itemCountMinus.svg">
+            </span>
+            <span>{{itemCount}}</span>
+            <span class="item-count-click add-click" (click)="onAddClick()">
+                <img class="addClick" src="../../../assets/icons/itemCountPlus.svg">
+            </span>
+        </div>
+    </div>
+    <div class="item-label-container">
+        <div *ngFor="let item of itemCountCollection">
+            <input type="text">
+        </div>
+    </div>
+</mat-card>

@@ -18,23 +18,28 @@ export class AppComponent {
   responsiveViewHeight: number;
 
   constructor(private router: Router) {
-    // this.auth.listenToSignInStateChanges((user) => {
-    //   this.auth.checkSignInState({
-    //     whenSignedIn: (user) => {
-    //       this.router.navigate(['']);
-    //     },
-    //     whenSignedOut: (user) => {
-    //       this.router.navigate(['connect']);
-    //     },
-    //     whenSignedInAndEmailNotVerified: (user) => {
-    //       this.router.navigate(['emailVerification']);
-    //     },
-    //     whenSignedInAndEmailVerified: (user) => {
-    //       this.router.navigate(['']);
-    //     },
-    //     whenChanged: (user) => {},
-    //   });
-    // });
+    // // redirect admin to admin page if connected
+    // if (this.auth.isSignedIn()) {
+    //   console.log('signed ?');
+    //   this.router.navigate(['admin']);
+    // }
+    this.auth.listenToSignInStateChanges((user) => {
+      this.auth.checkSignInState({
+        whenSignedIn: (user) => {
+          this.router.navigate(['admin']);
+        },
+        whenSignedOut: (user) => {
+          this.router.navigate(['']);
+        },
+        // whenSignedInAndEmailNotVerified: (user) => {
+        //   this.router.navigate(['emailVerification']);
+        // },
+        // whenSignedInAndEmailVerified: (user) => {
+        //   this.router.navigate(['']);
+        // },
+        whenChanged: (user) => {},
+      });
+    });
     this.responsiveViewHeight = window.innerHeight * 0.01;
     document.documentElement.style.setProperty(
       '--responsiveViewHeight',
