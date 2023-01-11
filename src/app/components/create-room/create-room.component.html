@@ -5,13 +5,13 @@
     </div>
     <div class="item-count-container">
         <div class="item-title-container">
-            <h3>How many Item do u want ?'</h3>
+            <h3>How many Item do u want ?</h3>
         </div>
         <div class="item-counter-filter-container">
             <span class="item-count-click minus-click" (click)="onMinusClick()">
                 <img class="minusClick" src="../../../assets/icons/itemCountMinus.svg">
             </span>
-            <span>{{itemCount}}</span>
+            <span class="item-count-filter-number">{{itemCount}}</span>
             <span class="item-count-click add-click" (click)="onAddClick()">
                 <img class="addClick" src="../../../assets/icons/itemCountPlus.svg">
             </span>
@@ -19,7 +19,8 @@
     </div>
     <div class="item-label-container">
         <div *ngFor="let item of itemCountCollection">
-            <input type="text">
+            <textarea type="text" #roomName maxlength="350" placeholder="Type item label"></textarea>
         </div>
     </div>
+    <!-- <button (click)="onCreateClick(loginEmail,loginPassword)" mat-raised-button color="accent">LOG IN</button> -->
 </mat-card>

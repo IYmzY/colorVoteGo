@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
+import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
 
 @Component({
   selector: 'app-create-room',
@@ -8,7 +10,13 @@ import { Component, OnInit } from '@angular/core';
 export class CreateRoomComponent implements OnInit {
   constructor() {}
   itemCount: number = 2;
+
   itemCountCollection = ['item', 'item'];
+
+  firestore = new FirebaseTSFirestore();
+
+  auth = new FirebaseTSAuth();
+
   ngOnInit(): void {}
 
   onAddClick() {
@@ -24,4 +32,5 @@ export class CreateRoomComponent implements OnInit {
       // this.bkService.currentNbInfants = this.babyCount;
     }
   }
+  onCreateClick() {}
 }

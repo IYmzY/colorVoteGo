@@ -1,9 +1,42 @@
-.mainAdminContainer {
+.main-admin-container {
   height: 100vh; /* Fallback for browsers that do not support Custom Properties */
   height: calc(var(--responsiveViewHeight, 1vh) * 100);
   width: 100vw;
   background-color: black;
   overflow: hidden;
+  .create-room-button {
+    position: absolute;
+    bottom: 3vh;
+    right: 3vw;
+    background-color: white;
+    color: #000000;
+    font-size: 2rem;
+    font-family: sfTitle;
+    font-weight: 700;
+    border: 3px solid white;
+    text-align: center;
+    padding: 0;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    @media screen and (max-width: 700px) {
+      bottom: 6vh;
+      right: 6vw;
+      background-color: black;
+      border: 3px solid white;
+      color: white;
+    }
+    &:hover {
+      background-color: black;
+      color: white;
+      border: 3px solid white;
+      @media screen and (max-width: 700px) {
+        background-color: white;
+        border: 3px solid black;
+        color: black;
+      }
+    }
+  }
   nav {
     width: 100%;
     display: flex;
@@ -35,7 +68,7 @@
       &:hover {
         border: white 1px solid;
       }
-      &.logOutButton {
+      &.logOut-button {
         border: rgba(255, 255, 255, 0.5) 1px solid;
         color: rgba(255, 255, 255, 0.5);
         text-transform: uppercase;
