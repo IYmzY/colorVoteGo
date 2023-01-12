@@ -124,4 +124,22 @@
       }
     }
   }
+  .create-room-button {
+    background: transparent;
+    color: black;
+    font-family: sfText;
+    font-size: 1rem;
+    border: black 4px solid;
+    border-radius: 1.5rem;
+    width: 9rem;
+    height: 4rem;
+    padding: 0;
+    cursor: pointer;
+    text-transform: uppercase;
+    &:hover {
+      background-color: black;
+      color: white;
+      border: black 4px solid;
+    }
+  }
 }

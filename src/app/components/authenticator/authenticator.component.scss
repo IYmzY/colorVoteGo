@@ -10,7 +10,7 @@
     border: rgba(255, 255, 255, 0.5) 1px solid;
     border-radius: 1rem;
     padding: 3rem;
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 800px) {
       padding: 1rem;
     }
     div {
@@ -32,7 +32,7 @@
         background-color: black;
         color: white;
         border: rgba(255, 255, 255, 0.5) 1px solid;
-        @media screen and (max-width: 700px) {
+        @media screen and (max-width: 800px) {
           width: 80%;
         }
         &:focus {
@@ -91,7 +91,7 @@
         border-radius: 1.2rem;
         padding: 0.2rem 1rem;
         width: 12rem;
-        @media screen and (max-width: 700px) {
+        @media screen and (max-width: 800px) {
           width: 9rem;
         }
         &:hover {
@@ -106,7 +106,7 @@
       font-family: sfTitle;
       font-size: 2rem;
       margin-bottom: 0;
-      @media screen and (max-width: 700px) {
+      @media screen and (max-width: 800px) {
         font-size: 1.8rem;
       }
     }
@@ -115,7 +115,7 @@
       font-family: sfTitle;
       font-size: 1.5rem;
       margin-top: 1rem;
-      @media screen and (max-width: 700px) {
+      @media screen and (max-width: 800px) {
         font-size: 1.2rem;
       }
     }

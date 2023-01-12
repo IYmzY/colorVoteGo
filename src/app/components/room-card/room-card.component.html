@@ -1,0 +1,9 @@
+<mat-card class="room-card-container">
+    <h2><span class="is-live-dot"></span>{{liveStatus}}</h2>
+    <h1 class="room-title">{{roomData.room_name}}</h1>
+    <mat-card-content class="room-content">
+        <p><span>{{roomData.total_participant}}</span> Participant(s)</p>
+        <p><span>{{roomData.total_items}}</span> Item(s) à traiter</p>
+        <p>crée le <span>{{roomData.timestamp.toDate().toLocaleDateString()}}</span></p>
+    </mat-card-content>
+</mat-card>

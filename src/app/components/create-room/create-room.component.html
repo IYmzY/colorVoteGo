@@ -1,7 +1,7 @@
 <mat-card class="create-room-container">
     <h2>Create Room</h2>
     <div class="room-name-container">
-        <textarea type="text" #roomName maxlength="350" placeholder="Type Room Name"></textarea>
+        <textarea type="text" #roomName maxlength="30" placeholder="Type Room Name"></textarea>
     </div>
     <div class="item-count-container">
         <div class="item-title-container">
@@ -19,8 +19,8 @@
     </div>
     <div class="item-label-container">
         <div *ngFor="let item of itemCountCollection">
-            <textarea type="text" #roomName maxlength="350" placeholder="Type item label"></textarea>
+            <textarea class="item-label-name" type="text" maxlength="150" placeholder="Type item label"></textarea>
         </div>
     </div>
-    <!-- <button (click)="onCreateClick(loginEmail,loginPassword)" mat-raised-button color="accent">LOG IN</button> -->
+    <button (click)="onCreateClick(roomName)" mat-raised-button color="accent" class="create-room-button">CREATE</button>
 </mat-card>
