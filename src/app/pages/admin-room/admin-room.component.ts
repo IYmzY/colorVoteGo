@@ -16,7 +16,7 @@ export class AdminRoomComponent implements OnInit {
 
   roomUuid!: string;
 
-  roomData: RoomData;
+  roomData!: RoomData;
 
   ngOnInit(): void {
     this.listenToCurrentRoom();
