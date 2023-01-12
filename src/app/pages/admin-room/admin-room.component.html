@@ -5,8 +5,8 @@
         <button class="logOut-button" (click)="onLogoutClick()" mat-flat-button>Log Out</button>
     </nav>
     <div class="room-content-container">
-        <div class="room-details-container" *ngIf="currentRoomData">
-            <app-room-details [currentRoomData]="currentRoomData"></app-room-details>
+        <div class="room-details-container">
+            <app-room-details *ngIf="currentRoomData" [currentRoomData]="currentRoomData"></app-room-details>
         </div>
         <div class="room-charts-container"></div>
     </div>

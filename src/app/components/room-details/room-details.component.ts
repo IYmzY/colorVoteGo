@@ -1,7 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {
   FirebaseTSFirestore,
+  Limit,
   OrderBy,
+  Where,
 } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
 import { CurrentRoomData } from 'src/app/pages/admin-room/admin-room.component';
 
@@ -11,6 +13,9 @@ import { CurrentRoomData } from 'src/app/pages/admin-room/admin-room.component';
   styleUrls: ['./room-details.component.scss'],
 })
 export class RoomDetailsComponent implements OnInit {
+  constructor() {}
+  @Input() currentRoomData!: CurrentRoomData;
+
   firestore = new FirebaseTSFirestore();
 
   itemCollection: ItemCollection[] = [];
@@ -21,53 +26,51 @@ export class RoomDetailsComponent implements OnInit {
 
   isLastItem: boolean = false;
 
-  @Input() currentRoomData!: CurrentRoomData;
-  constructor() {}
+  itemNames!: string;
 
   ngOnInit(): void {
     this.getItemsOfCurrentRoom();
-    this.currentItem = <ItemCollection>this.itemCollection[0];
   }
 
-  async getItemsOfCurrentRoom() {
-    console.log(this.currentRoomData);
+  getItemsOfCurrentRoom() {
     if (this.currentRoomData) {
-      await this.firestore.listenToCollection({
+      this.firestore.listenToCollection({
         name: 'ItemsListener',
         path: ['Rooms', this.currentRoomData.room_code, 'items'],
-        where: [new OrderBy('timestamp', 'asc')],
+        where: [new Limit(10)],
         onUpdate: (result) => {
+          if (result) {
+            console.log('result exist : ' + JSON.stringify(result));
+          }
           result.docChanges().forEach((itemDoc) => {
-            if (itemDoc.type === 'added') {
-              let item = <ItemCollection>itemDoc.doc.data();
-              this.itemCollection.unshift(item);
+            if (itemDoc.type === 'added' || itemDoc.type === 'modified') {
+              this.itemCollection.push(<ItemCollection>itemDoc.doc.data());
+              this.itemNames =
+                this.itemCollection[this.currentItemIndex].item_name;
             }
           });
         },
       });
-      console.log(this.currentItem);
-      console.log(this.currentRoomData);
-      console.log('itemCollection ' + this.itemCollection);
-      console.log(this.currentRoomData.room_code);
-    } else {
-      console.log("current room data don't exist");
     }
   }
+
   onNext() {
-    if (this.currentItemIndex < this.itemCollection.length) {
+    if (this.currentItemIndex + 2 < this.itemCollection.length) {
       this.currentItemIndex++;
+      this.itemNames = this.itemCollection[this.currentItemIndex].item_name;
     } else {
       this.isLastItem = true;
     }
   }
 }
 export interface ItemCollection {
-  green: [string];
-  greenYellow: [string];
-  yellow: [string];
-  orange: [string];
-  red: [string];
-  black: [string];
-  white: [string];
+  green: [];
+  greenYellow: [];
+  yellow: [];
+  orange: [];
+  red: [];
+  black: [];
+  white: [];
   item_name: string;
+  timestamp: firebase.default.firestore.Timestamp;
 }
