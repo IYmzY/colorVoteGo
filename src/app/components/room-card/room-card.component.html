@@ -1,5 +1,6 @@
-<mat-card class="room-card-container">
-    <h2><span class="is-live-dot"></span>{{liveStatus}}</h2>
+<mat-card class="room-card-container" (click)="onRoomCardClick()">
+    <h2><span class="is-live-dot" [ngClass]=" roomData.live_status? 'green-dot' : 'red-dot'"></span>
+        {{roomData.live_status ? 'Live' : 'Offline'}}</h2>
     <h1 class="room-title">{{roomData.room_name}}</h1>
     <mat-card-content class="room-content">
         <p><span>{{roomData.total_participant}}</span> Participant(s)</p>

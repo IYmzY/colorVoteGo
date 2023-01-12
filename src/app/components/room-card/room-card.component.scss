@@ -25,9 +25,14 @@
       height: 0.8rem;
       width: 0.8rem;
       border-radius: 50%;
-      background-color: red;
       display: block;
       margin-right: 0.1rem;
+      &.red-dot {
+        background-color: red;
+      }
+      &.green-dot {
+        background-color: green;
+      }
     }
   }
   h1 {

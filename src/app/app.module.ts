@@ -18,9 +18,11 @@ import { VisitorAuthComponent } from './components/visitor-auth/visitor-auth.com
 import { AdminComponent } from './pages/admin/admin.component';
 import { CreateRoomComponent } from './components/create-room/create-room.component';
 import { RoomCardComponent } from './components/room-card/room-card.component';
+import { AdminRoomComponent } from './pages/admin-room/admin-room.component';
+import { RoomDetailsComponent } from './components/room-details/room-details.component';
 
 @NgModule({
-  declarations: [AppComponent, WelcomeComponent, AuthenticatorComponent, VisitorAuthComponent, AdminComponent, CreateRoomComponent, RoomCardComponent],
+  declarations: [AppComponent, WelcomeComponent, AuthenticatorComponent, VisitorAuthComponent, AdminComponent, CreateRoomComponent, RoomCardComponent, AdminRoomComponent, RoomDetailsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

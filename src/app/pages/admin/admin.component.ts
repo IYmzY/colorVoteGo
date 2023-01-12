@@ -40,11 +40,9 @@ export class AdminComponent implements OnInit {
     this.getRooms();
   }
 
-  onLogoutClick() {
-    this.auth.signOut();
+  async onLogoutClick() {
     if (this.auth.isSignedIn()) {
-      return;
-    } else {
+      await this.auth.signOut();
       this.router.navigate(['']);
     }
   }
@@ -76,4 +74,5 @@ export interface RoomData {
   timestamp: firebase.default.firestore.Timestamp;
   total_items: number;
   total_participant: number;
+  live_status: boolean;
 }
