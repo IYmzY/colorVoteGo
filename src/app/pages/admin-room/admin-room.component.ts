@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
 
 @Component({
@@ -16,14 +16,13 @@ export class AdminRoomComponent implements OnInit {
 
   roomUuid!: string;
 
-  roomData!: RoomData;
+  currentRoomData!: CurrentRoomData;
 
   ngOnInit(): void {
-    this.listenToCurrentRoom();
     this.route.params.subscribe((parameters) => {
       this.roomUuid = parameters.id;
     });
-    console.log(this.roomUuid);
+    this.listenToCurrentRoom();
   }
 
   async onLogoutClick() {
@@ -41,15 +40,14 @@ export class AdminRoomComponent implements OnInit {
       name: 'currentRoomListener',
       path: ['Rooms', this.roomUuid],
       onUpdate: (result) => {
-        this.roomData = <RoomData>result.data();
-        //a console log 'result" etc
-        // this.allLikes = this.allLikesPostCount.likesCount;
+        this.currentRoomData = <CurrentRoomData>result.data();
+        console.log(this.currentRoomData);
       },
     });
   }
 }
 
-export interface RoomData {
+export interface CurrentRoomData {
   room_code: string;
   room_name: string;
   timestamp: firebase.default.firestore.Timestamp;

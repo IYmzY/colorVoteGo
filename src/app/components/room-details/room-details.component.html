@@ -1,1 +1,9 @@
-<p>room-details works!</p>
+<mat-card class="room-card-container">
+    <h1 class="room-title">{{currentRoomData.room_name}}</h1>
+    <mat-card-content class="room-content">
+        <p><span>{{currentRoomData.total_participant}}</span> Participant(s)</p>
+    </mat-card-content>
+    <h2>Item {{this.currentItemIndex}}</h2>
+    <!-- <h3>{{currentItem.item_name}}</h3> -->
+    <!-- <button (click)="onNext()" mat-raised-button color="accent" class="create-room-button">Next</button> -->
+</mat-card>

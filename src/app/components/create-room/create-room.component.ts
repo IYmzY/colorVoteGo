@@ -69,6 +69,8 @@ export class CreateRoomComponent implements OnInit {
                 yellow: [],
                 greenYellow: [],
                 green: [],
+                black: [],
+                white: [],
               },
               onComplete: (docId) => {
                 this.roomService.sendRoomsUpdate(true);
