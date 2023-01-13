@@ -14,6 +14,10 @@
       height: 0.2rem;
       width: 3rem;
       margin: 0 auto;
+      cursor: pointer;
+      @media screen and (max-width: 800px) {
+        width: 1.2rem;
+      }
     }
     &:last-child {
       width: 30%;
@@ -22,23 +26,50 @@
 }
 .red {
   background-color: red;
+  height: calc(var(--redStyleProperty) * 10) !important;
+  @media screen and (max-width: 800px) {
+    height: calc(var(--redStyleProperty) * 4) !important;
+  }
 }
 .orange {
   background-color: orange;
+  height: calc(var(--orangeStyleProperty) * 10) !important;
+  @media screen and (max-width: 800px) {
+    height: calc(var(--orangeStyleProperty) * 4) !important;
+  }
 }
 .yellow {
   background-color: yellow;
+  height: calc(var(--yellowStyleProperty) * 10) !important;
+  @media screen and (max-width: 800px) {
+    height: calc(var(--yellowStyleProperty) * 4) !important;
+  }
 }
 .green-yellow {
   background-color: greenyellow;
+  height: calc(var(--greenYellowStyleProperty) * 10) !important;
+  @media screen and (max-width: 800px) {
+    height: calc(var(--greenYellowStyleProperty) * 4) !important;
+  }
 }
 .green {
-  height: var(--greenStyleProperty) !important;
+  height: calc(var(--greenStyleProperty) * 10) !important;
+  @media screen and (max-width: 800px) {
+    height: calc(var(--greenStyleProperty) * 4) !important;
+  }
   background-color: green;
 }
 .black {
   background-color: black;
+  height: calc(var(--blackStyleProperty) * 10) !important;
+  @media screen and (max-width: 800px) {
+    height: calc(var(--blackStyleProperty) * 4) !important;
+  }
 }
 .white {
   background-color: white;
+  height: calc(var(--whiteStyleProperty) * 10) !important;
+  @media screen and (max-width: 800px) {
+    height: calc(var(--whiteStyleProperty) * 4) !important;
+  }
 }

@@ -8,6 +8,8 @@ export class RoomServiceService {
   isRoomsUpdated: Subject<boolean> = new Subject<boolean>();
 
   ItemIndexUpdateEmitter = new Subject<number>();
+
+  currentVisitorName = new Subject<string>();
   constructor() {}
 
   sendRoomsUpdate(isUpdated: boolean) {
@@ -18,11 +20,4 @@ export class RoomServiceService {
     return this.isRoomsUpdated.asObservable();
   }
 
-  // sendItemIndexpdate(isUpdated: number) {
-  //   this.ItemIndexUpdateEmitter.next(isUpdated);
-  // }
-
-  // getItemIndexUpdate(): Observable<number> {
-  //   return this.ItemIndexUpdateEmitter.asObservable();
-  // }
 }

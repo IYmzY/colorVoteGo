@@ -1,6 +1,7 @@
 <div class="welcomeMainContainer">
     <mat-accordion>
-        <mat-expansion-panel (opened)="panelOpenState" (closed)="!panelOpenState" hideToggle>
+        <mat-expansion-panel [expanded]="!panelOpenState" (opened)="panelOpenState" (closed)="!panelOpenState"
+            hideToggle>
             <mat-expansion-panel-header>
                 <mat-panel-title>
                     Visitor access

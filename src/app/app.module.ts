@@ -19,6 +19,8 @@ import { RoomCardComponent } from './components/room-card/room-card.component';
 import { AdminRoomComponent } from './pages/admin-room/admin-room.component';
 import { RoomDetailsComponent } from './components/room-details/room-details.component';
 import { RoomChartsComponent } from './components/room-charts/room-charts.component';
+import { VisitorRoomComponent } from './pages/visitor-room/visitor-room.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { RoomChartsComponent } from './components/room-charts/room-charts.compon
     AdminRoomComponent,
     RoomDetailsComponent,
     RoomChartsComponent,
+    VisitorRoomComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +45,7 @@ import { RoomChartsComponent } from './components/room-charts/room-charts.compon
     MatDialogModule,
     MatIconModule,
     MatExpansionModule,
+    MatTooltipModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
