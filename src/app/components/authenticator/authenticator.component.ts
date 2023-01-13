@@ -76,7 +76,7 @@ export class AuthenticatorComponent implements OnInit {
   getHeaderText() {
     switch (this.state) {
       case AuthComponentState.LOGIN:
-        return 'Connecté avec succès';
+        return 'Connexion avec votre identifiant administrateur';
       case AuthComponentState.FORGOT_PASSWORD:
         return 'Mot de passe oublié';
     }
