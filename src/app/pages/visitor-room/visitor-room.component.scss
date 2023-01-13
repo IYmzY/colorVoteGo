@@ -1,0 +1,92 @@
+.main-visitor-room-container {
+  height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+  height: calc(var(--responsiveViewHeight, 1vh) * 100);
+  width: 100vw;
+  background-color: black;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  h1 {
+    color: white;
+    font-family: sfTitle;
+    font-size: 2rem;
+    margin: 0;
+    @media screen and (max-width: 800px) {
+      font-size: 1.8rem;
+    }
+  }
+  h2 {
+    color: white;
+    font-family: sfTitle;
+    font-size: 1.5rem;
+    margin: 0;
+    @media screen and (max-width: 800px) {
+      font-size: 1.2rem;
+    }
+  }
+  .room-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    div {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      align-items: center;
+      margin: 3rem;
+      button {
+        // background: transparent;
+        color: black;
+        font-family: sfText;
+        font-size: 1rem;
+        border: white 4px solid;
+        border-radius: 1.5rem;
+        width: 12rem;
+        height: 12rem;
+        padding: 1rem;
+        margin: 0 1rem;
+        cursor: pointer;
+        text-transform: uppercase;
+        &:hover {
+          background-color: black;
+          color: white;
+          border: black 4px solid;
+        }
+        &.green {
+          background-color: #2cba00;
+          //   filter: invert(50%) sepia(80%) saturate(1219%) hue-rotate(68deg)
+          //     brightness(93%) contrast(104%);
+        }
+        &.greenYellow {
+          background-color: #a3ff00;
+          //   filter: invert(79%) sepia(44%) saturate(1093%) hue-rotate(29deg)
+          //     brightness(107%) contrast(106%);
+        }
+        &.yellow {
+          background-color: #fff400;
+          //   filter: invert(94%) sepia(9%) saturate(7259%) hue-rotate(360deg)
+          //     brightness(107%) contrast(103%);
+        }
+        &.orange {
+          background-color: #ffa700;
+          //   filter: invert(80%) sepia(42%) saturate(6322%) hue-rotate(1deg)
+          //     brightness(106%) contrast(103%);
+        }
+        &.red {
+          background-color: #ff0000 !important;
+          //   filter: invert(15%) sepia(87%) saturate(6928%) hue-rotate(5deg)
+          //     brightness(113%) contrast(122%);
+        }
+        &.black {
+          background-color: transparent;
+        }
+        &.white {
+          background-color: white;
+        }
+      }
+    }
+  }
+}

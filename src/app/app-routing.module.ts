@@ -7,6 +7,7 @@ import { VisitorRoomComponent } from './pages/visitor-room/visitor-room.componen
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent },
+  // { path: '', component: VisitorRoomComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'admin/dashboard/:id', component: AdminRoomComponent },
   { path: 'room/:id', component: VisitorRoomComponent },

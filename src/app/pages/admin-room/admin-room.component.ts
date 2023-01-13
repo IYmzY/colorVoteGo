@@ -41,7 +41,6 @@ export class AdminRoomComponent implements OnInit {
       path: ['Rooms', this.roomUuid],
       onUpdate: (result) => {
         this.currentRoomData = <CurrentRoomData>result.data();
-        console.log(this.currentRoomData);
       },
     });
   }

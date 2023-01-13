@@ -83,7 +83,7 @@ export class RoomChartsComponent implements OnInit {
   getItemsOfCurrentRoom() {
     if (this.currentRoomData) {
       this.firestore.listenToCollection({
-        name: 'ItemsListener',
+        name: 'itemsChartsListener',
         path: ['Rooms', this.currentRoomData.room_code, 'items'],
         where: [new OrderBy('item_order', 'asc')],
         onUpdate: (result) => {

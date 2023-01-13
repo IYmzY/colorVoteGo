@@ -25,6 +25,8 @@ export class RoomDetailsComponent implements OnInit {
 
   itemNames!: string;
 
+  // itemsUuid!: any;
+
   ngOnInit(): void {
     this.getItemsOfCurrentRoom();
     this.firestore.update({
@@ -33,12 +35,13 @@ export class RoomDetailsComponent implements OnInit {
         current_item: this.currentItemIndex,
       },
     });
+    // console.log('itemsUuid ' + this.itemsUuid);
   }
 
   getItemsOfCurrentRoom() {
     if (this.currentRoomData) {
       this.firestore.listenToCollection({
-        name: 'ItemsListener',
+        name: 'ItemsDetailsListener',
         path: ['Rooms', this.currentRoomData.room_code, 'items'],
         where: [new OrderBy('item_order', 'asc')],
         onUpdate: (result) => {
@@ -47,6 +50,8 @@ export class RoomDetailsComponent implements OnInit {
               this.itemCollection.push(<ItemCollection>itemDoc.doc.data());
               this.itemNames =
                 this.itemCollection[this.currentItemIndex].item_name;
+              // this.itemsUuid.push(itemDoc.doc.ref.id);
+              // console.log('itemsUuid ' + this.itemsUuid);
             }
           });
         },

@@ -27,7 +27,7 @@ export class VisitorAuthComponent implements OnInit {
           path: ['Rooms', roomNumber],
           onComplete: (result) => {
             if (result.exists) {
-              this.roomService.currentVisitorName.next(visitorName);
+              this.roomService.currentVisitorName = visitorName;
               this.router.navigate([`room/${roomNumber}`]);
             } else {
               window.alert("this sessionNumber doesn't exist");
@@ -42,7 +42,6 @@ export class VisitorAuthComponent implements OnInit {
       window.alert('verify that all fields are correctly filled');
     }
   }
-
 
   isNotEmpty(text: string) {
     return text !== null && text.length > 0;

@@ -57,6 +57,7 @@ export class CreateRoomComponent implements OnInit {
           total_participant: 0,
           live_status: false,
           current_item: 0,
+          itemUuid: [],
         },
         onComplete: (docId) => {
           const itemsCollection =
@@ -78,6 +79,12 @@ export class CreateRoomComponent implements OnInit {
               },
               onComplete: (docId) => {
                 this.roomService.sendRoomsUpdate(true);
+                this.firestore.update({
+                  path: ['Rooms', roomID],
+                  data: {
+                    itemUuid: this.firestore.appendArray(docId),
+                  },
+                });
                 this.dialog.close();
               },
               onFail(err) {

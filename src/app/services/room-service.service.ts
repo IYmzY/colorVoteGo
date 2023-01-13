@@ -9,7 +9,7 @@ export class RoomServiceService {
 
   ItemIndexUpdateEmitter = new Subject<number>();
 
-  currentVisitorName = new Subject<string>();
+  currentVisitorName: string = 'user';
   constructor() {}
 
   sendRoomsUpdate(isUpdated: boolean) {
@@ -19,5 +19,4 @@ export class RoomServiceService {
   getRoomsUpdate(): Observable<boolean> {
     return this.isRoomsUpdated.asObservable();
   }
-
 }

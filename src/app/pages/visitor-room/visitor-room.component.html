@@ -1,1 +1,19 @@
-<p>visitor-room works!</p>
+<mat-card class="main-visitor-room-container">
+    <h2>Welcome {{currentVisitorName}}</h2>
+    <h1 class="room-title"></h1>
+    <mat-card-content class="room-content">
+        <div>
+            <button (click)="onButtonClick('green')" mat-raised-button class="create-room-button green"></button>
+            <button (click)="onButtonClick('greenYellow')" mat-raised-button
+                class="create-room-button greenYellow"></button>
+            <button (click)="onButtonClick('yellow')" mat-raised-button class="create-room-button yellow"></button>
+            <button (click)="onButtonClick('orange')" mat-raised-button class="create-room-button orange"></button>
+            <button (click)="onButtonClick('red')" mat-raised-button class="create-room-button red"></button>
+        </div>
+        <div>
+            <button (click)="onButtonClick('black')" mat-raised-button class="create-room-button black "></button>
+            <button (click)="onButtonClick('white')" mat-raised-button class="create-room-button white"></button>
+        </div>
+
+    </mat-card-content>
+</mat-card>
