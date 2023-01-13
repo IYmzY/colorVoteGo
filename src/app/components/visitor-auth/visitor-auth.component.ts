@@ -43,19 +43,6 @@ export class VisitorAuthComponent implements OnInit {
     }
   }
 
-  // getUserProfile() {
-  //   this.firestore.getDocument({
-  //     path: ['UsersProfile', this.auth.getAuth().currentUser?.uid!],
-  //     onComplete: (result) => {
-  //       if (result.exists && result.data()?.publicName.length > 0) {
-  //         this.username = result.data()?.publicName;
-  //       }
-  //       if (result.exists && result.data()?.imageProfile) {
-  //         this.currentImageProfileUrl = result.data()?.imageProfile;
-  //       }
-  //     },
-  //   });
-  // }
 
   isNotEmpty(text: string) {
     return text !== null && text.length > 0;

@@ -56,6 +56,7 @@ export class CreateRoomComponent implements OnInit {
           timestamp: FirebaseTSApp.getFirestoreTimestamp(),
           total_participant: 0,
           live_status: false,
+          current_item: 0,
         },
         onComplete: (docId) => {
           const itemsCollection =

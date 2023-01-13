@@ -54,4 +54,5 @@ export interface CurrentRoomData {
   total_items: number;
   total_participant: number;
   live_status: boolean;
+  current_item: number;
 }

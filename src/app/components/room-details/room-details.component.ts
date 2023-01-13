@@ -15,8 +15,6 @@ export class RoomDetailsComponent implements OnInit {
   constructor(private roomService: RoomServiceService) {}
   @Input() currentRoomData!: CurrentRoomData;
 
-  // @Output() currentItemIndexEmitter: EventEmitter<number> = new EventEmitter();
-
   firestore = new FirebaseTSFirestore();
 
   itemCollection: ItemCollection[] = [];
@@ -29,6 +27,12 @@ export class RoomDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getItemsOfCurrentRoom();
+    this.firestore.update({
+      path: ['Rooms', this.currentRoomData.room_code],
+      data: {
+        current_item: this.currentItemIndex,
+      },
+    });
   }
 
   getItemsOfCurrentRoom() {
@@ -50,11 +54,17 @@ export class RoomDetailsComponent implements OnInit {
     }
   }
 
-  onNext() {
+  async onNext() {
     if (this.currentItemIndex + 1 < this.itemCollection.length) {
       this.currentItemIndex++;
       this.roomService.ItemIndexUpdateEmitter.next(this.currentItemIndex);
-      // this.currentItemIndexEmitter.emit(this.currentItemIndex);
+      await this.firestore.update({
+        path: ['Rooms', this.currentRoomData.room_code],
+        data: {
+          current_item: this.currentItemIndex,
+        },
+      });
+
       this.itemNames = this.itemCollection[this.currentItemIndex].item_name;
       if (this.currentItemIndex + 1 === this.itemCollection.length) {
         this.isLastItem = true;

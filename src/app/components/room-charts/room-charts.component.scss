@@ -4,11 +4,33 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  position: relative;
+  z-index: 99;
+  &::after {
+    background: 0 127%
+      url(https://upload.wikimedia.org/wikipedia/commons/9/9f/Graph-paper.svg)
+      white;
+    opacity: 0.55;
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    content: "";
+    z-index: -1;
+    @media screen and (max-width: 800px) {
+      background-position: 0 119%;
+    }
+  }
   .column-charts-container {
     display: flex;
     width: 70%;
     margin: 1rem;
     align-items: flex-end;
+    @media screen and (max-width: 800px) {
+      margin: 0 1rem;
+    }
     .column-chart-item {
       border: 0.5px solid rgba(0, 0, 0, 0.444);
       height: 0.2rem;
