@@ -1,10 +1,10 @@
 <mat-card class="room-card-container" (click)="onRoomCardClick()">
     <h2><span class="is-live-dot" [ngClass]=" roomData.live_status? 'green-dot' : 'red-dot'"></span>
-        {{roomData.live_status ? 'Live' : 'Offline'}}</h2>
+        {{roomData.live_status ? 'Live' : 'Off'}}</h2>
     <h1 class="room-title">{{roomData.room_name}}</h1>
     <mat-card-content class="room-content">
         <p><span>{{roomData.total_participant}}</span> Participant(s)</p>
         <p><span>{{roomData.total_items}}</span> Item(s) à traiter</p>
-        <p>crée le <span>{{roomData.timestamp.toDate().toLocaleDateString()}}</span></p>
+        <p>Crée le <span>{{roomData.timestamp.toDate().toLocaleDateString()}}</span></p>
     </mat-card-content>
 </mat-card>
