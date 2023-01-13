@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class RoomCardComponent implements OnInit {
   firestore = new FirebaseTSFirestore();
 
-  liveStatus: string = 'offline';
+  liveStatus: string = 'Off';
 
   @Input() roomData!: RoomData;
 
