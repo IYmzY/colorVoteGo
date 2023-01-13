@@ -5,8 +5,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FirebaseTSApp } from 'firebasets/firebasetsApp/firebaseTSApp';
 import { environment } from 'src/environments/environment';
-
-// material import
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
@@ -20,9 +18,21 @@ import { CreateRoomComponent } from './components/create-room/create-room.compon
 import { RoomCardComponent } from './components/room-card/room-card.component';
 import { AdminRoomComponent } from './pages/admin-room/admin-room.component';
 import { RoomDetailsComponent } from './components/room-details/room-details.component';
+import { RoomChartsComponent } from './components/room-charts/room-charts.component';
 
 @NgModule({
-  declarations: [AppComponent, WelcomeComponent, AuthenticatorComponent, VisitorAuthComponent, AdminComponent, CreateRoomComponent, RoomCardComponent, AdminRoomComponent, RoomDetailsComponent],
+  declarations: [
+    AppComponent,
+    WelcomeComponent,
+    AuthenticatorComponent,
+    VisitorAuthComponent,
+    AdminComponent,
+    CreateRoomComponent,
+    RoomCardComponent,
+    AdminRoomComponent,
+    RoomDetailsComponent,
+    RoomChartsComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

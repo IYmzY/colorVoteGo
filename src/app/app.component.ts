@@ -18,11 +18,6 @@ export class AppComponent {
   responsiveViewHeight: number;
 
   constructor(private router: Router) {
-    // // redirect admin to admin page if connected
-    // if (this.auth.isSignedIn()) {
-    //   console.log('signed ?');
-    //   this.router.navigate(['admin']);
-    // }
     this.auth.listenToSignInStateChanges((user) => {
       this.auth.checkSignInState({
         whenSignedIn: (user) => {
@@ -31,12 +26,7 @@ export class AppComponent {
         whenSignedOut: (user) => {
           this.router.navigate(['']);
         },
-        // whenSignedInAndEmailNotVerified: (user) => {
-        //   this.router.navigate(['emailVerification']);
-        // },
-        // whenSignedInAndEmailVerified: (user) => {
-        //   this.router.navigate(['']);
-        // },
+
         whenChanged: (user) => {},
       });
     });

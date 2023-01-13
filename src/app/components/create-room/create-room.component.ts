@@ -23,6 +23,8 @@ export class CreateRoomComponent implements OnInit {
 
   auth = new FirebaseTSAuth();
 
+  itemIncrementation: number = 0;
+
   ngOnInit(): void {}
 
   onAddClick() {
@@ -71,6 +73,7 @@ export class CreateRoomComponent implements OnInit {
                 green: [],
                 black: [],
                 white: [],
+                item_order: this.itemIncrementation++,
               },
               onComplete: (docId) => {
                 this.roomService.sendRoomsUpdate(true);

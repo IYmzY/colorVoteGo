@@ -1,0 +1,44 @@
+.room-charts-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  .column-charts-container {
+    display: flex;
+    width: 70%;
+    margin: 1rem;
+    align-items: flex-end;
+    .column-chart-item {
+      border: 0.5px solid rgba(0, 0, 0, 0.444);
+      height: 0.2rem;
+      width: 3rem;
+      margin: 0 auto;
+    }
+    &:last-child {
+      width: 30%;
+    }
+  }
+}
+.red {
+  background-color: red;
+}
+.orange {
+  background-color: orange;
+}
+.yellow {
+  background-color: yellow;
+}
+.green-yellow {
+  background-color: greenyellow;
+}
+.green {
+  height: var(--greenStyleProperty) !important;
+  background-color: green;
+}
+.black {
+  background-color: black;
+}
+.white {
+  background-color: white;
+}

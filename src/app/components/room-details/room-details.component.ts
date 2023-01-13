@@ -1,11 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {
   FirebaseTSFirestore,
-  Limit,
   OrderBy,
-  Where,
 } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
 import { CurrentRoomData } from 'src/app/pages/admin-room/admin-room.component';
+import { RoomServiceService } from 'src/app/services/room-service.service';
 
 @Component({
   selector: 'app-room-details',
@@ -13,14 +12,14 @@ import { CurrentRoomData } from 'src/app/pages/admin-room/admin-room.component';
   styleUrls: ['./room-details.component.scss'],
 })
 export class RoomDetailsComponent implements OnInit {
-  constructor() {}
+  constructor(private roomService: RoomServiceService) {}
   @Input() currentRoomData!: CurrentRoomData;
+
+  // @Output() currentItemIndexEmitter: EventEmitter<number> = new EventEmitter();
 
   firestore = new FirebaseTSFirestore();
 
   itemCollection: ItemCollection[] = [];
-
-  currentItem: any;
 
   currentItemIndex: number = 0;
 
@@ -37,11 +36,8 @@ export class RoomDetailsComponent implements OnInit {
       this.firestore.listenToCollection({
         name: 'ItemsListener',
         path: ['Rooms', this.currentRoomData.room_code, 'items'],
-        where: [new Limit(10)],
+        where: [new OrderBy('item_order', 'asc')],
         onUpdate: (result) => {
-          if (result) {
-            console.log('result exist : ' + JSON.stringify(result));
-          }
           result.docChanges().forEach((itemDoc) => {
             if (itemDoc.type === 'added' || itemDoc.type === 'modified') {
               this.itemCollection.push(<ItemCollection>itemDoc.doc.data());
@@ -55,14 +51,18 @@ export class RoomDetailsComponent implements OnInit {
   }
 
   onNext() {
-    if (this.currentItemIndex + 2 < this.itemCollection.length) {
+    if (this.currentItemIndex + 1 < this.itemCollection.length) {
       this.currentItemIndex++;
+      this.roomService.ItemIndexUpdateEmitter.next(this.currentItemIndex);
+      // this.currentItemIndexEmitter.emit(this.currentItemIndex);
       this.itemNames = this.itemCollection[this.currentItemIndex].item_name;
-    } else {
-      this.isLastItem = true;
+      if (this.currentItemIndex + 1 === this.itemCollection.length) {
+        this.isLastItem = true;
+      }
     }
   }
 }
+
 export interface ItemCollection {
   green: [];
   greenYellow: [];
@@ -72,5 +72,5 @@ export interface ItemCollection {
   black: [];
   white: [];
   item_name: string;
-  timestamp: firebase.default.firestore.Timestamp;
+  item_order: number;
 }

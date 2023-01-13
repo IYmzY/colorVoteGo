@@ -18,6 +18,8 @@ export class AdminRoomComponent implements OnInit {
 
   currentRoomData!: CurrentRoomData;
 
+  // currentItemIndex: number = 0;
+
   ngOnInit(): void {
     this.route.params.subscribe((parameters) => {
       this.roomUuid = parameters.id;
@@ -45,6 +47,9 @@ export class AdminRoomComponent implements OnInit {
       },
     });
   }
+  // ListenToItemIndexEmitter(update: number) {
+  //   this.currentItemIndex = update;
+  // }
 }
 
 export interface CurrentRoomData {

@@ -6,6 +6,8 @@ import { Observable, Subject } from 'rxjs';
 })
 export class RoomServiceService {
   isRoomsUpdated: Subject<boolean> = new Subject<boolean>();
+
+  ItemIndexUpdateEmitter = new Subject<number>();
   constructor() {}
 
   sendRoomsUpdate(isUpdated: boolean) {
@@ -15,4 +17,12 @@ export class RoomServiceService {
   getRoomsUpdate(): Observable<boolean> {
     return this.isRoomsUpdated.asObservable();
   }
+
+  // sendItemIndexpdate(isUpdated: number) {
+  //   this.ItemIndexUpdateEmitter.next(isUpdated);
+  // }
+
+  // getItemIndexUpdate(): Observable<number> {
+  //   return this.ItemIndexUpdateEmitter.asObservable();
+  // }
 }
