@@ -34,7 +34,7 @@ export class VisitorAuthComponent implements OnInit {
               });
               this.router.navigate([`room/${roomNumber}`]);
             } else {
-              window.alert("this sessionNumber doesn't exist");
+              window.alert("Cet identifiant de session n'existe pas");
             }
           },
           onFail(err) {
@@ -43,7 +43,7 @@ export class VisitorAuthComponent implements OnInit {
         });
       }
     } else {
-      window.alert('verify that all fields are correctly filled');
+      window.alert('Verifiez que tous les champs soient correctement remplis');
     }
   }
 

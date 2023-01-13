@@ -26,7 +26,7 @@ export class AuthenticatorComponent implements OnInit {
         email: email,
         password: password,
         onComplete: (uc) => {
-          console.log('Connected with success');
+          console.log('Connecté');
           this.router.navigate(['admin']);
         },
         onFail: (err) => {
@@ -43,7 +43,7 @@ export class AuthenticatorComponent implements OnInit {
         email: email,
         onComplete: (err) => {
           alert(
-            `Instruction to reset your passoword has been sent to ${email}`
+            `Les instructions de réinitialisation de votre mot de passe sont envoyées sur votre adresse email: ${email}`
           );
         },
       });
@@ -76,9 +76,9 @@ export class AuthenticatorComponent implements OnInit {
   getHeaderText() {
     switch (this.state) {
       case AuthComponentState.LOGIN:
-        return 'Log in with your admin access';
+        return 'Connexion avec votre identifiant administrateur';
       case AuthComponentState.FORGOT_PASSWORD:
-        return 'Forgot Password';
+        return 'Mot de passe oublié';
     }
   }
 }

@@ -4,8 +4,8 @@
     <mat-card-content class="room-content">
         <p><span>{{currentRoomData.total_participant}}</span> Participant(s)</p>
     </mat-card-content>
-    <h2>Item {{this.currentItemIndex+1}}</h2>
+    <h2>Idée {{this.currentItemIndex+1}}</h2>
     <h3>{{itemNames}}</h3>
     <button (click)="onNext()" mat-raised-button color="accent" *ngIf="!isLastItem"
-        class="create-room-button">Next</button>
+        class="create-room-button">Suivant</button>
 </mat-card>
