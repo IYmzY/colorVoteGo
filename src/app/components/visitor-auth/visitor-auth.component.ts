@@ -28,6 +28,10 @@ export class VisitorAuthComponent implements OnInit {
           onComplete: (result) => {
             if (result.exists) {
               this.roomService.currentVisitorName = visitorName;
+              this.firestore.update({
+                path: ['Rooms', roomNumber],
+                data: { total_participant: this.firestore.increment(1) },
+              });
               this.router.navigate([`room/${roomNumber}`]);
             } else {
               window.alert("this sessionNumber doesn't exist");

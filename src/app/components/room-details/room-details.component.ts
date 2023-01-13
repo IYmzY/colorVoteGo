@@ -50,8 +50,6 @@ export class RoomDetailsComponent implements OnInit {
               this.itemCollection.push(<ItemCollection>itemDoc.doc.data());
               this.itemNames =
                 this.itemCollection[this.currentItemIndex].item_name;
-              // this.itemsUuid.push(itemDoc.doc.ref.id);
-              // console.log('itemsUuid ' + this.itemsUuid);
             }
           });
         },

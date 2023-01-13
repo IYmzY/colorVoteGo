@@ -54,4 +54,5 @@ export interface CurrentRoomData {
   total_participant: number;
   live_status: boolean;
   current_item: number;
+  itemUuid: [];
 }

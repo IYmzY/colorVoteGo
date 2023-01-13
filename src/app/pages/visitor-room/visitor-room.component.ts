@@ -50,6 +50,7 @@ export class VisitorRoomComponent implements OnInit {
       onUpdate: (result) => {
         this.currentRoomData = <CurrentRoomData>result.data();
         this.currentitem = this.currentRoomData.current_item;
+        this.currentItemDocID = this.currentRoomData.itemUuid[this.currentitem];
       },
     });
   }
@@ -66,31 +67,176 @@ export class VisitorRoomComponent implements OnInit {
             this.itemCollection.push(<ItemCollection>itemDoc.doc.data());
             this.currentItemName =
               this.itemCollection[this.currentitem].item_name;
-            // this.currentItemDocID = this.itemCollection[this.currentitem];
           });
         },
       });
     }
   }
 
-  //   this.firestore.update({
-  //   path: ['Rooms', this.currentRoomData.room_code],
-  //   data: {
-  //     current_item: this.currentItemIndex,
-  //   },
-  // });
-
   onButtonClick(color: string) {
-    // this.firestore.update({
-    //   path: ['Rooms', this.roomUuid, 'items'],
-    //   data: {},
-    // });
+    if (
+      this.itemCollection[this.currentitem].green.length > 0 &&
+      this.itemCollection[this.currentitem].green
+    ) {
+      for (const element of this.itemCollection[this.currentitem].green) {
+        if (element === this.roomService.currentVisitorName) {
+          window.alert(
+            'you have already voted, you can only vote once per item'
+          );
+          return;
+        }
+      }
+    }
+
+    if (
+      this.itemCollection[this.currentitem].greenYellow.length > 0 &&
+      this.itemCollection[this.currentitem].greenYellow
+    ) {
+      for (const element of this.itemCollection[this.currentitem].greenYellow) {
+        if (element === this.roomService.currentVisitorName) {
+          window.alert(
+            'you have already voted, you can only vote once per item'
+          );
+          return;
+        }
+      }
+    }
+    if (
+      this.itemCollection[this.currentitem].yellow.length > 0 &&
+      this.itemCollection[this.currentitem].yellow
+    ) {
+      for (const element of this.itemCollection[this.currentitem].yellow) {
+        if (element === this.roomService.currentVisitorName) {
+          window.alert(
+            'you have already voted, you can only vote once per item'
+          );
+          return;
+        }
+      }
+    }
+    if (
+      this.itemCollection[this.currentitem].orange.length > 0 &&
+      this.itemCollection[this.currentitem].orange
+    ) {
+      for (const element of this.itemCollection[this.currentitem].orange) {
+        if (element === this.roomService.currentVisitorName) {
+          window.alert(
+            'you have already voted, you can only vote once per item'
+          );
+          return;
+        }
+      }
+    }
+    if (
+      this.itemCollection[this.currentitem].red.length > 0 &&
+      this.itemCollection[this.currentitem].red
+    ) {
+      for (const element of this.itemCollection[this.currentitem].red) {
+        if (element === this.roomService.currentVisitorName) {
+          window.alert(
+            'you have already voted, you can only vote once per item'
+          );
+          return;
+        }
+      }
+    }
+    if (
+      this.itemCollection[this.currentitem].black.length > 0 &&
+      this.itemCollection[this.currentitem].black
+    ) {
+      for (const element of this.itemCollection[this.currentitem].black) {
+        if (element === this.roomService.currentVisitorName) {
+          window.alert(
+            'you have already voted, you can only vote once per item'
+          );
+          return;
+        }
+      }
+    }
+    if (
+      this.itemCollection[this.currentitem].white.length > 0 &&
+      this.itemCollection[this.currentitem].white
+    ) {
+      for (const element of this.itemCollection[this.currentitem].white) {
+        if (element === this.roomService.currentVisitorName) {
+          window.alert(
+            'you have already voted, you can only vote once per item'
+          );
+          return;
+        }
+      }
+    }
+
     switch (color) {
       case 'green':
+        this.firestore.update({
+          path: ['Rooms', this.roomUuid, 'items', this.currentItemDocID],
+          data: {
+            green: this.firestore.appendArray(
+              this.roomService.currentVisitorName
+            ),
+          },
+        });
         break;
       case 'greenYellow':
+        this.firestore.update({
+          path: ['Rooms', this.roomUuid, 'items', this.currentItemDocID],
+          data: {
+            greenYellow: this.firestore.appendArray(
+              this.roomService.currentVisitorName
+            ),
+          },
+        });
         break;
-      case 'babyCount':
+      case 'yellow':
+        this.firestore.update({
+          path: ['Rooms', this.roomUuid, 'items', this.currentItemDocID],
+          data: {
+            yellow: this.firestore.appendArray(
+              this.roomService.currentVisitorName
+            ),
+          },
+        });
+        break;
+      case 'orange':
+        this.firestore.update({
+          path: ['Rooms', this.roomUuid, 'items', this.currentItemDocID],
+          data: {
+            orange: this.firestore.appendArray(
+              this.roomService.currentVisitorName
+            ),
+          },
+        });
+        break;
+      case 'red':
+        this.firestore.update({
+          path: ['Rooms', this.roomUuid, 'items', this.currentItemDocID],
+          data: {
+            red: this.firestore.appendArray(
+              this.roomService.currentVisitorName
+            ),
+          },
+        });
+        break;
+      case 'black':
+        this.firestore.update({
+          path: ['Rooms', this.roomUuid, 'items', this.currentItemDocID],
+          data: {
+            black: this.firestore.appendArray(
+              this.roomService.currentVisitorName
+            ),
+          },
+        });
+        break;
+      case 'white':
+        this.firestore.update({
+          path: ['Rooms', this.roomUuid, 'items', this.currentItemDocID],
+          data: {
+            white: this.firestore.appendArray(
+              this.roomService.currentVisitorName
+            ),
+          },
+        });
         break;
       default:
     }

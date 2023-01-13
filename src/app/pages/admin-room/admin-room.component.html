@@ -9,11 +9,9 @@
     <div class="room-content-container">
         <div class="room-details-container">
             <app-room-details *ngIf="currentRoomData" [currentRoomData]="currentRoomData"></app-room-details>
-            <!-- (currentItemIndexEmitter)="ListenToItemIndexEmitter($event)" -->
         </div>
         <div class="room-charts-container">
             <app-room-charts *ngIf="currentRoomData" [currentRoomData]="currentRoomData"></app-room-charts>
-            <!-- [currentItemIndex]="currentItemIndex" -->
         </div>
     </div>
 </div>
